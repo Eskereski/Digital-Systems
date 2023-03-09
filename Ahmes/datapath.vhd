@@ -20,7 +20,7 @@ entity datapath is
 		cargaN : in  STD_LOGIC;
       	cargaZ : in  STD_LOGIC;
       	cargaV : in  STD_LOGIC;
-      	cargaC : in  STD_LOGIC;
+		cargaC : in  STD_LOGIC;
       	cargaB : in  STD_LOGIC;
 		
 		selULA : in  STD_LOGIC_VECTOR(3 downto 0);
