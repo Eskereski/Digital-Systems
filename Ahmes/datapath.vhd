@@ -107,8 +107,6 @@ begin
 						regPC <= regRDM;
 					elsif(incPC = '1') then
 						regPC <= std_logic_vector(unsigned((regPC) + 1));
-					else
-						regPC <= regPC;
 					end if;
 				end if;
 			end if;
@@ -121,8 +119,6 @@ begin
 			elsif(rising_edge(clk)) then
 				if(cargaAC = '1') then
 					regAC <= regULA;
-				else
-					regAC <= regAC;
 				end if;
 			end if;
 
@@ -135,8 +131,6 @@ begin
 			elsif(rising_edge(CLK)) then
 				if(cargaRDM = '1') then
 					regRDM <= regMUXRDM;
-				else
-					regRDM <= regRDM;
 				end if;
 			end if;
 	end process;
@@ -145,8 +139,6 @@ begin
 		begin
 			if(selMUXRDM = '1') then
 				regMUXRDM <= regAC;
-			else
-				regMUXRDM <= regMEM;
 			end if;
 	end process;
 
@@ -157,8 +149,6 @@ begin
 			elsif(rising_edge(CLK)) then
 				if(cargaREM = '1') then
 					regREM <= regMUXREM;
-				else
-					regREM <= regREM;
 				end if;
 			end if;
 	end process;
@@ -179,8 +169,6 @@ begin
 			elsif(rising_edge(CLK)) then
 				if (cargaN = '1') then
 					flagN <= opULA(7);
-				else
-					flagN <= flagN;
 				end if;
 			end if;
 	end process;
@@ -196,8 +184,6 @@ begin
 					else
 						flagZ <= '0';
 					end if;
-				else
-					flagZ <= flagZ;
 				end if;
 			end if;
 	end process;
@@ -229,8 +215,6 @@ begin
 							flagV <= '0';
 						end if;
 					end if;
-				else
-					flagV <= flagV;
 				end if;
 			end if;
 	end process;
@@ -242,8 +226,6 @@ begin
 			elsif(rising_edge(CLK)) then
 				if (cargaC = '1') then
 					flagC <= opULA(8);
-				else
-					flagC <= flagC;
 				end if;
 			end if;
 	end process;
@@ -259,8 +241,6 @@ begin
 					else
 						flagB <= '0';
 					end if;
-				else
-					flagB <= flagB;
 				end if;
 			end if;
 
@@ -380,8 +360,6 @@ begin
 			elsif(rising_edge(CLK)) then
 				if (cargaRI = '1') then
 					regRI <= regRDM;
-				else
-					regRI <= regRI;
 				end if;
 			end if;
 
