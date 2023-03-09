@@ -1,0 +1,7 @@
+vhdtdtfi -lib work Controle.vhd -prj Ahmes -o Controle.spl -module Controle -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family artix7l Controle.spl /home/ise/Pasta_Compartilhada_SD/Ahmes/Controle.sym 
+vhdtdtfi -lib work Controle.vhd -prj Ahmes -o Controle.spl -module Controle -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family artix7l Controle.spl /home/ise/Pasta_Compartilhada_SD/Ahmes/Controle.sym 
+vhdtdtfi -lib work Controle.vhd -prj Ahmes -o Controle.spl -module Controle -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family artix7l Controle.spl /home/ise/Pasta_Compartilhada_SD/Ahmes/Controle.sym 
+vhdtdtfi -prj Ahmes -o /home/ise/Pasta_Compartilhada_SD/Ahmes/Controle.vhi -module Controle -template /opt/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work Controle.vhd 
