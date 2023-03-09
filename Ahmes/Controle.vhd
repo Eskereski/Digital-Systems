@@ -46,10 +46,19 @@ architecture Behavioral of Controle is
 
 begin
 
-    process(clk, RESET) -- controle
-        begin   
+    process(clk, RESET) --Atualiza proxestado
+        begin
+            if(RESET = '1') then
+                estado <= t0;
+            elsif(rising_edge(clk)) then
+                estado <= proxestado;
+            end if;
+    end process;
+
+    process(clk, RESET) --Controle
+        begin
             if(RESET= '1') then
-                proxestado <= t0;
+				proxestado <= t0;
                 cargaN <= '0'; 
                 cargaZ <= '0'; 
                 cargaV <= '0'; 
@@ -69,21 +78,24 @@ begin
                     when t0 =>
                         selMUXREM <= '0';  --Acho q eh o rem mas n tenho ctz
                         cargaREM <= '1';
+						proxestado <= t1;
 
                     when t1 =>
                         WR <= "0";  --Não sei oq eh pra ser "read"
                         incPC <= '1';
-
+						proxestado <= t2;
+						
                     when t2 =>
                         cargaRI <= '1';
-
+						proxestado <= t3;
+						
                     when t3 =>
                         if(regriDECOD(6) = '1') then        --NOT
                             selULA <= "0100";
                             cargaAC <= '1';
                             cargaN <= '1';
                             cargaZ <= '1';
-                            proxestado <= t0;
+                            proxestado <= t0;		
                         elsif(  (regriDECOD(9) = '1' and regN = '0')   or       --JN 
                                 (regriDECOD(10) = '1' and regN = '1')  or       --JP 
                                 (regriDECOD(11) = '1' and regV = '0')  or       --JV 
@@ -131,9 +143,9 @@ begin
                             (regriDECOD(20) = '1') or       --SHL
                             (regriDECOD(21) = '1') or       --ROR
                             (regriDECOD(22) = '1')) then    --ROL
-                        selMUXREM <= '1';
-                        cargaREM <= '1';
-                        proxestado <= t6;
+							selMUXREM <= '1';
+							cargaREM <= '1';
+							proxestado <= t6;
                         else
                             cargaPC <= '1';
                             proxestado <= t0;
