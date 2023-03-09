@@ -96,16 +96,17 @@ begin
                             cargaN <= '1';
                             cargaZ <= '1';
                             proxestado <= t0;		
-                        elsif(  (regriDECOD(9) = '1' and regN = '0')   or       --JN 
-                                (regriDECOD(10) = '1' and regN = '1')  or       --JP 
-                                (regriDECOD(11) = '1' and regV = '0')  or       --JV 
-                                (regriDECOD(12) = '1' and regV = '1')  or       --JNV
-                                (regriDECOD(13) = '1' and regZ = '0')  or       --JZ
-                                (regriDECOD(14) = '1' and regZ = '1')  or       --JNZ
-                                (regriDECOD(15) = '1' and regC = '0')  or       --JC
-                                (regriDECOD(16) = '1' and regC = '1')  or       --JNC
-                                (regriDECOD(17) = '1' and regB = '0')  or       --JB 
-                                (regriDECOD(18) = '1' and regB = '1')) then     --JNB
+                        elsif(  (regriDECOD(8))                         or
+                                (regriDECOD(9) = '1' and regN = '0')    or      --JN 
+                                (regriDECOD(10) = '1' and regN = '1')   or      --JP 
+                                (regriDECOD(11) = '1' and regV = '0')   or      --JV 
+                                (regriDECOD(12) = '1' and regV = '1')   or      --JNV
+                                (regriDECOD(13) = '1' and regZ = '0')   or      --JZ
+                                (regriDECOD(14) = '1' and regZ = '1')   or      --JNZ
+                                (regriDECOD(15) = '1' and regC = '0')   or      --JC
+                                (regriDECOD(16) = '1' and regC = '1')   or      --JNC
+                                (regriDECOD(17) = '1' and regB = '0')   or      --JB 
+                                (regriDECOD(18) = '1' and regB = '1'))  then    --JNB
                             incPC <= '1';
                             proxestado <= t0;
                         elsif(regriDECOD(0) = '1') then                         --NOP
