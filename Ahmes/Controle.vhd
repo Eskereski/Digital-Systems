@@ -55,9 +55,8 @@ begin
             end if;
     end process;
 
-    process(clk, RESET) --Controle
+    process(estado, regriDECOD, regN, regZ, regV, regC, regB) --Controle
         begin
-            if(RESET= '1') then
 				proxestado <= t0;
                 cargaN <= '0'; 
                 cargaZ <= '0'; 
@@ -73,7 +72,7 @@ begin
                 selULA <= "1111"; 
                 cargaRI <= '0'; 
                 WR <= "0";
-            elsif(rising_edge(clk)) then
+
                 case estado is
                     when t0 =>
                         selMUXREM <= '0';  --Acho q eh o rem mas n tenho ctz
@@ -81,7 +80,7 @@ begin
 						proxestado <= t1;
 
                     when t1 =>
-                        WR <= "0";  --Não sei oq eh pra ser "read"
+                        WR <= "0";  --No sei oq eh pra ser "read"
                         incPC <= '1';
 						proxestado <= t2;
 						
@@ -90,13 +89,13 @@ begin
 						proxestado <= t3;
 						
                     when t3 =>
-                        if(regriDECOD(6) = '1') then        --NOT
+                        if(regriDECOD(6) = '1') then                            --NOT
                             selULA <= "0100";
                             cargaAC <= '1';
                             cargaN <= '1';
                             cargaZ <= '1';
                             proxestado <= t0;		
-                        elsif(  (regriDECOD(8))                         or
+                        elsif(  (regriDECOD(8) = '1')                         or
                                 (regriDECOD(9) = '1' and regN = '0')    or      --JN 
                                 (regriDECOD(10) = '1' and regN = '1')   or      --JP 
                                 (regriDECOD(11) = '1' and regV = '0')   or      --JV 
@@ -125,11 +124,11 @@ begin
                             (regriDECOD(3) = '1') or                --ADD
                             (regriDECOD(4) = '1') or                --OR
                             (regriDECOD(5) = '1')) then             --AND
-                            WR <= "0";   --Não sei oq eh pra ser "read"
+                            WR <= "0";   --No sei oq eh pra ser "read"
                             incPC <= '1';
                             proxestado <= t5;
                         else
-                            WR <= "0";	 --Não sei oq eh pra ser "read"
+                            WR <= "0";	 --No sei oq eh pra ser "read"
                             proxestado <= t5;
                         end if;
                         
@@ -157,13 +156,13 @@ begin
                             cargaRDM <= '1';
                             proxestado <= t7;
                         else
-                            WR <= "0";   --Não sei oq eh pra ser "read"
+                            WR <= "0";   --No sei oq eh pra ser "read"
                             proxestado <= t7;
                         end if;
 
                     when t7 =>
                         if(regriDECOD(1) = '1') then        --STA
-                            WR <= "1";  --Não sei oq eh pra ser "Write"
+                            WR <= "1";  --No sei oq eh pra ser "Write"
                             proxestado <= t0;
                         elsif(regriDECOD(2) = '1') then     --LDA
                             selULA <= "0000";
@@ -235,8 +234,7 @@ begin
                     when HALT =>
                             proxestado <= HALT;
                     when others => proxestado <= HALT;
-                end case;
-            end if;  
+                end case;  
                 
     end process;         
 
