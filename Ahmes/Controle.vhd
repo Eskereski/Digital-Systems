@@ -80,7 +80,7 @@ begin
 						proxestado <= t1;
 
                     when t1 =>
-                        WR <= "0";  --No sei oq eh pra ser "read"
+                        WR <= "0";  --Não sei oq eh pra ser "read"
                         incPC <= '1';
 						proxestado <= t2;
 						
@@ -124,11 +124,11 @@ begin
                             (regriDECOD(3) = '1') or                --ADD
                             (regriDECOD(4) = '1') or                --OR
                             (regriDECOD(5) = '1')) then             --AND
-                            WR <= "0";   --No sei oq eh pra ser "read"
+                            WR <= "0";   --Não sei oq eh pra ser "read"
                             incPC <= '1';
                             proxestado <= t5;
                         else
-                            WR <= "0";	 --No sei oq eh pra ser "read"
+                            WR <= "0";	 --Não sei oq eh pra ser "read"
                             proxestado <= t5;
                         end if;
                         
@@ -156,13 +156,13 @@ begin
                             cargaRDM <= '1';
                             proxestado <= t7;
                         else
-                            WR <= "0";   --No sei oq eh pra ser "read"
+                            WR <= "0";   --Não sei oq eh pra ser "read"
                             proxestado <= t7;
                         end if;
 
                     when t7 =>
                         if(regriDECOD(1) = '1') then        --STA
-                            WR <= "1";  --No sei oq eh pra ser "Write"
+                            WR <= "1";  --Não sei oq eh pra ser "Write"
                             proxestado <= t0;
                         elsif(regriDECOD(2) = '1') then     --LDA
                             selULA <= "0000";
