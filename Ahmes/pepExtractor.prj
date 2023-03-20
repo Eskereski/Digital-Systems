@@ -1,1 +1,3 @@
 work	"Controle.vhd"
+work	"datapath.vhd"
+work	"main.vhd"

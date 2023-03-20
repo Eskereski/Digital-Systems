@@ -1,5 +1,5 @@
-set -tmpdir "/home/ise/Pasta_Compartilhada_SD/Ahmes/xst/projnav.tmp"
-set -xsthdpdir "/home/ise/Pasta_Compartilhada_SD/Ahmes/xst"
+set -tmpdir "/home/ise/Digital-Systems/Ahmes/xst/projnav.tmp"
+set -xsthdpdir "/home/ise/Digital-Systems/Ahmes/xst"
 run -compileonly yes
 -p xc7a100tl-2L-csg324
 -top datapath

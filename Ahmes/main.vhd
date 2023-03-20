@@ -18,7 +18,7 @@ architecture Behavioral of main is
 		regV : IN std_logic;
 		regC : IN std_logic;
 		regB : IN std_logic;
-		regriDECOD : IN std_logic_vector(23 downto 0);         
+		regriDECOD : IN std_logic_vector(23 downto 0); 
 		cargaN : OUT std_logic;
 		cargaZ : OUT std_logic;
 		cargaV : OUT std_logic;
@@ -91,8 +91,6 @@ architecture Behavioral of main is
 	signal regB : STD_LOGIC;
 	signal regriDECOD : STD_LOGIC_VECTOR(23 downto 0);
 
-
-	
 begin
 		
 	mainOUT<= memOUT;

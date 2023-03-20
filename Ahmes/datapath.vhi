@@ -1,5 +1,5 @@
 
--- VHDL Instantiation Created from source file datapath.vhd -- 03:01:38 03/03/2023
+-- VHDL Instantiation Created from source file datapath.vhd -- 23:59:23 03/15/2023
 --
 -- Notes: 
 -- 1) This instantiation template has been automatically generated using types
@@ -24,14 +24,14 @@
 		selULA : IN std_logic_vector(3 downto 0);
 		selMUXREM : IN std_logic;
 		selMUXRDM : IN std_logic;
-		WR : IN std_logic_vector(0 to 0);
-		RD : IN std_logic_vector(0 to 0);          
+		WR : IN std_logic_vector(0 to 0);          
 		regN : OUT std_logic;
 		regZ : OUT std_logic;
 		regV : OUT std_logic;
 		regC : OUT std_logic;
 		regB : OUT std_logic;
-		regriDECOD : OUT std_logic_vector(23 downto 0)
+		regriDECOD : OUT std_logic_vector(23 downto 0);
+		memOUT : OUT std_logic_vector(7 downto 0)
 		);
 	END COMPONENT;
 
@@ -53,13 +53,13 @@
 		selMUXREM => ,
 		selMUXRDM => ,
 		WR => ,
-		RD => ,
 		regN => ,
 		regZ => ,
 		regV => ,
 		regC => ,
 		regB => ,
-		regriDECOD => 
+		regriDECOD => ,
+		memOUT => 
 	);
 
 

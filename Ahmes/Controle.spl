@@ -21,7 +21,6 @@ cargaRDM
 selMUXREM
 selMUXRDM
 cargaRI
-WR
-RD
 =selULA[3:0]=
+=WR[0:0]=
 [BiDir]

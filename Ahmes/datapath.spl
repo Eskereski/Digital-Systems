@@ -16,7 +16,6 @@ selMUXREM
 selMUXRDM
 =selULA[3:0]=
 =WR[0:0]=
-=RD[0:0]=
 [Outputs]
 regN
 regZ
@@ -24,4 +23,5 @@ regV
 regC
 regB
 =regriDECOD[23:0]=
+=memOUT[7:0]=
 [BiDir]

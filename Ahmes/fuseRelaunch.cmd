@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/ise/Digital-Systems/Ahmes/TestBench_Ahmes_isim_beh.exe" -prj "/home/ise/Digital-Systems/Ahmes/TestBench_Ahmes_beh.prj" "work.TestBench_Ahmes" 
